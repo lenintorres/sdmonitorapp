@@ -1,8 +1,22 @@
-Monitored {{isMonitored}}<br/>
-Id:{{ id }}<br/>
-Name:{{ name }}<br/>
-Address:{{ ipv4Address }}<br/>
+Monitored: {{isMonitored}}<br/>
+Id: {{ id }}<br/>
+Name: {{ name }}<br/>
+Address: {{ ipv4Address }}<br/>
 <button 
     class="btn btn-primary"
     (click)="onToggleMonitoring()"
     >Toggle monitoring</button>
+<br/>
+<input type="text" class="form-control" [(ngModel)]="property">
+Property: {{property}} <br/>
+<button 
+    class="btn btn-primary"
+    (click)="onChangeProperty()"
+    >Reset property</button>
+       
+<hr>
+<input 
+    type="text" 
+    class="form-control" 
+    (input)="onElementInput($event)">
+Property : {{property2}} <br/>

@@ -14,9 +14,15 @@ export class DeviceComponent{
     ipv4Address="Not set";
     monitorInterval:number=5;
     isMonitored:boolean=true;
-
+    property = "Not set";
+    property2 = "property Not set"
     onToggleMonitoring(){
         this.isMonitored=!this.isMonitored;
     }
-
+    onChangeProperty(){
+        this.property = "Not set";
+    }
+    onElementInput(event:Event){
+        this.property2 = (<HTMLInputElement>event.target).value;
+    }
 }
