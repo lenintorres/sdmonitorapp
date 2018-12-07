@@ -33,9 +33,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-.vagrant
+.vagrant/
 # System Files
 .DS_Store
 Thumbs.db
 
 ping_server/node_modules/*
+ubuntu*.log
