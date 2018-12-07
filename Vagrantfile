@@ -18,6 +18,11 @@ Vagrant.configure("2") do |config|
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
+  required_plugins = %w( vagrant-fsnotify )
+  required_plugins.each do |plugin|
+    system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+  end
+
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -44,7 +49,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-
+  config.vm.synced_folder ".", "/vagrant", fsnotify: true
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -68,4 +73,6 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
   config.vm.provision "shell", path: "vagrantProvision.sh"
+  
+    
 end
